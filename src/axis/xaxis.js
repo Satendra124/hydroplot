@@ -21,44 +21,52 @@ const drawXAxis = (
 	if (cutsReq === true) {
 		if (equalCuts) {
 			for (let i = 0; i < length; i += unitLength) {
-				context.moveTo(
-					unitLength * i * Math.cos(angle) + x,
-					unitLength * i * Math.sin(angle) + y
-				);
-				context.lineTo(
-					unitLength * i * Math.cos(angle) + x,
-					unitLength * i * Math.sin(angle) + y + 2
-				);
-				context.stroke();
+				for (let i = 0; i <= length; i += unitLength) {
+					context.beginPath();
+					context.fillStyle = "black";
+					context.ellipse(
+						i * Math.cos(angle) + x,
+						i * Math.sin(angle) + y,
+						1.5,
+						1,
+						angle + Math.PI / 2,
+						0,
+						2 * Math.PI
+					);
+					context.fill();
+					context.stroke();
+				}
 			}
 		} else {
 			for (let i = 0; i <= length; i += unitLength) {
-				context.fillRect(
+				context.beginPath();
+				context.fillStyle = "black";
+				context.ellipse(
 					i * Math.cos(angle) + x,
 					i * Math.sin(angle) + y,
-					3.5,
-					3.5
+					1.5,
+					1,
+					angle + Math.PI / 2,
+					0,
+					2 * Math.PI
 				);
-
-				// context.beginPath();
-				// context.ellipse(
-				// 	i * Math.cos(angle) + x,
-				// 	i * Math.sin(angle) + y,
-				// 	3.5,
-				// 	1,
-				// 	angle + Math.PI / 2,
-				// 	0,
-				// 	2 * Math.PI
-				// );
-				// context.stroke();
+				context.fill();
+				context.stroke();
 			}
 			for (let i = 0; i <= length; i += unitLength / 2) {
-				context.fillRect(
+				context.beginPath();
+				context.fillStyle = "black";
+				context.ellipse(
 					i * Math.cos(angle) + x,
 					i * Math.sin(angle) + y,
-					2.5,
-					2.5
+					0.75,
+					1,
+					angle + Math.PI / 2,
+					0,
+					2 * Math.PI
 				);
+				context.fill();
+				context.stroke();
 			}
 		}
 	}

@@ -16,7 +16,7 @@ const Stiff = () => {
 
 	const xInitial = canvasWidth / 2;
 	const yInitial = canvasHeight / 2;
-	const axisAngle = 190; // In Degrees and increases clockwise
+	const axisAngle = 90; // In Degrees and increases clockwise
 	const axisLength = canvasWidth;
 
 	const canvasRef = useRef(null);
@@ -39,16 +39,16 @@ const Stiff = () => {
 			50,
 			false
 		);
-		drawXAxis(
-			context,
-			xInitial,
-			yInitial,
-			90 * (Math.PI / 180),
-			axisLength,
-			true,
-			50,
-			false
-		);
+		// drawXAxis(
+		// 	context,
+		// 	xInitial,
+		// 	yInitial,
+		// 	90 * (Math.PI / 180),
+		// 	axisLength,
+		// 	true,
+		// 	50,
+		// 	true
+		// );
 	}, []);
 	return <Canvas canvasref={canvasRef}></Canvas>;
 };
